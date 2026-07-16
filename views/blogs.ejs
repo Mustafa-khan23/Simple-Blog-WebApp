@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogs | Blogigy</title>
+  </head>
+  <body>
+    <%- include("partials/navbar.ejs") %>
+    <% for(blogs of blogContent) { %>
+    <div class="card" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title"><%= blogs.title %></h5>
+        <p class="card-text"><%= blogs.content %></p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <% } %>
+  </body>
+</html>

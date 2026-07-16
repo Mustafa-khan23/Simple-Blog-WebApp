@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Getting Started with Express.js",
+    "author": "Mustafa",
+    "content": "Express.js is a fast, minimalist web framework for Node.js. It simplifies routing, middleware handling, and server-side development."
+  },
+  {
+    "id": 2,
+    "title": "Understanding REST APIs",
+    "author": "Aisha",
+    "content": "REST APIs allow clients and servers to communicate using standard HTTP methods such as GET, POST, PUT, PATCH, and DELETE."
+  },
+  {
+    "id": 3,
+    "title": "Why Learn EJS?",
+    "author": "Rahul",
+    "content": "EJS lets you embed JavaScript directly into HTML templates, making it easy to render dynamic content on the server."
+  },
+  {
+    "id": 4,
+    "title": "Bootstrap for Beginners",
+    "author": "Sarah",
+    "content": "Bootstrap provides a responsive grid system and pre-built components that help developers build beautiful interfaces quickly."
+  },
+  {
+    "id": 5,
+    "title": "Node.js Event Loop Explained",
+    "author": "David",
+    "content": "The event loop enables Node.js to perform non-blocking I/O operations efficiently by handling asynchronous callbacks."
+  },
+  {
+    "id": 6,
+    "title": "Introduction to Middleware",
+    "author": "Emily",
+    "content": "Middleware functions execute during the request-response cycle and can modify requests, responses, or end the cycle."
+  },
+  {
+    "id": 7,
+    "title": "Building Your First CRUD App",
+    "author": "Mustafa",
+    "content": "CRUD applications are the foundation of web development. They teach you how to create, read, update, and delete resources."
+  },
+  {
+    "id": 8,
+    "title": "Understanding HTTP Status Codes",
+    "author": "John",
+    "content": "HTTP status codes like 200, 201, 404, and 500 communicate the outcome of a request between client and server."
+  },
+  {
+    "id": 9,
+    "title": "What is Server-Side Rendering?",
+    "author": "Sophia",
+    "content": "Server-side rendering generates HTML on the server before sending it to the browser, improving SEO and initial page load."
+  },
+  {
+    "id": 10,
+    "title": "JavaScript Array Methods",
+    "author": "Ali",
+    "content": "Methods such as map(), filter(), find(), reduce(), and forEach() are essential for working with collections of data."
+  }
+]
