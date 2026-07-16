@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-
+const PORT = 3000;
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -12,10 +12,12 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.post("/login", (req, res) => {
+app.post("/post", (req, res) => {
   console.log(req.body);
 
   res.send(`Welcome ${req.body.username}`);
 });
 
-app.listen(3000);
+app.listen(PORT, () => {
+  console.log(`Server is listening on ${PORT}`);
+});

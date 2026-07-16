@@ -6,13 +6,14 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="/" method="get">
+    <%- include("partials/navbar.ejs") %>
+    <form action="http://localhost:3000/submit" method="get">
       <input type="text" name="username" placeholder="username" />
       <input type="password" name="password" id="pass" placeholder="password" />
       <button type="submit">submit</button>
     </form>
 
-    <form action="/" method="post">
+    <form action="http://localhost:3000/post" method="post">
       <input type="text" name="username" placeholder="username" />
       <input type="password" name="password" id="pass" placeholder="password" />
       <button type="submit">submit</button>
