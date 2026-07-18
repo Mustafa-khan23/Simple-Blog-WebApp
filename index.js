@@ -3,27 +3,19 @@ const path = require("path");
 const fs = require("fs");
 const PORT = 3000;
 const app = express();
-let blogContent = require("./blogs.json");
-const data = JSON.parse(fs.readFileSync("blogs.json", "utf-8"));
-let name;
-for (let blogs of blogContent) {
-  name = blogs;
-}
+const blogContent = require("./blogs.json");
+const name = blogContent[0]?.author || "Blog";
 
-//middlewares
+// middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use("/images", express.static(path.join(__dirname, "public", "images")));
-//routes
 
+// routes
 app.get("/", (req, res) => {
   res.render("landing", { name });
-});
-
-app.post("/", (req, res) => {
-  console.log(req.body);
 });
 
 app.get("/blogs", (req, res) => {
@@ -32,23 +24,29 @@ app.get("/blogs", (req, res) => {
 
 app.get("/blogs/:id", (req, res) => {
   const id = Number(req.params.id);
-  const blog = blogContent.find((name) => name.id === id);
-  // const blogUsr = blogContent.find((name) => name.author === author);
+  const blog = blogContent.find((item) => item.id === id);
+  if (!blog) {
+    return res.redirect("/blogs");
+  }
   res.render("details.ejs", { name, id, blogContent, blog });
 });
-//server
 
 app.get("/create", (req, res) => {
-  res.render("createBlog.ejs", {});
+  res.render("createBlog.ejs");
 });
 
 app.post("/create", (req, res) => {
-  data.author.push({
-    author: "mfhkjsdfh",
-  });
-  let { username } = req.body;
-  blogContent.push(username);
-  res.send("blog added successfully");
+  const { username, blogContent: blogText, title } = req.body;
+  const newId = Math.max(...blogContent.map((blog) => blog.id)) + 1;
+  const newBlog = {
+    id: newId,
+    title: title,
+    author: username,
+    content: blogText,
+  };
+  blogContent.push(newBlog);
+  fs.writeFileSync("blogs.json", JSON.stringify(blogContent, null, 2));
+  res.redirect("/blogs");
 });
 
 app.listen(PORT, () => {

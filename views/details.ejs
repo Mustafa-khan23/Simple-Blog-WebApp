@@ -3,15 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= %> | blogify</title>
+    <title><%= blog.author %> | blogify</title>
   </head>
   <body>
     <%- include("partials/navbar") %>
-    <p><%= blog.author %></p>
     <div class="card" style="width: 18rem">
-      <img src="..." class="card-img-top" alt="..." />
       <div class="card-body">
         <h5 class="card-title"><%= blog.author %></h5>
+        <p class="card-text"><%= blog.title %></p>
         <p class="card-text"><%= blog.content %></p>
         <a href="#" class="btn btn-primary">Delete</a>
       </div>
