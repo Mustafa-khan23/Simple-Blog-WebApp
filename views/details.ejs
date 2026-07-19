@@ -13,6 +13,11 @@
         <p class="card-text"><%= blog.title %></p>
         <p class="card-text"><%= blog.content %></p>
         <a href="#" class="btn btn-primary">Delete</a>
+        <a
+          href="http://localhost:3000/blogs/<%= blog.id %>/update"
+          class="btn btn-primary"
+          >update/edit</a
+        >
       </div>
     </div>
   </body>

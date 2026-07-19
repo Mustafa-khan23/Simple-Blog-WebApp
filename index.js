@@ -5,6 +5,7 @@ const PORT = 3000;
 const app = express();
 const blogContent = require("./blogs.json");
 const name = blogContent[0]?.author || "Blog";
+const methodOverride = require("method-override");
 
 // middlewares
 app.use(express.urlencoded({ extended: true }));
@@ -47,6 +48,24 @@ app.post("/create", (req, res) => {
   blogContent.push(newBlog);
   fs.writeFileSync("blogs.json", JSON.stringify(blogContent, null, 2));
   res.redirect("/blogs");
+});
+
+app.get("/blogs/:id/update", (req, res) => {
+  const id = Number(req.params.id);
+  const blog = blogContent.find((item) => item.id === id);
+  if (!blog) {
+    return res.redirect("/blogs");
+  }
+  res.render("update.ejs", { blogContent, blog });
+});
+
+app.patch("/blogs/:id/update", (req, res) => {
+  const id = Number(req.params.id);
+  const blog = blogContent.find((item) => item.id === id);
+  if (!blog) {
+    return res.redirect("/blogs");
+  }
+  res.send("Updated!", { blog });
 });
 
 app.listen(PORT, () => {
