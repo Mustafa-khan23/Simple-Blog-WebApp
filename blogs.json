@@ -58,5 +58,11 @@
     "title": "JavaScript Array Methods",
     "author": "Ali",
     "content": "Methods such as map(), filter(), find(), reduce(), and forEach() are essential for working with collections of data."
+  },
+  {
+    "id": 11,
+    "title": "NEET UG experience ",
+    "author": "faiza",
+    "content": "NEET UG is a competitive exam in India, conducted by NTA (national test agency) designed for entrance test for medical aspiring students  "
   }
 ]
