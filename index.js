@@ -4,7 +4,7 @@ const path = require("path");
 const fs = require("fs");
 const PORT = 3000;
 const app = express();
-const blogContent = require("./data/blogs.json");
+let blogContent = require("./data/blogs.json");
 const name = blogContent[0]?.author || "Blog";
 
 // middlewares
@@ -51,17 +51,16 @@ app.post("/create", (req, res) => {
   res.redirect("/blogs");
 });
 
-app.get("/blogs/:id/update", (req, res) => {
+app.get("/blogs/:id/edit", (req, res) => {
   const id = Number(req.params.id);
   const blog = blogContent.find((item) => item.id === id);
   if (!blog) {
     return res.redirect("/blogs");
   }
-  res.render("update.ejs", { blogContent, blog });
+  res.render("edit.ejs", { blogContent, blog });
 });
 
 app.patch("/blogs/:id", (req, res) => {
-  console.log("patch route is working");
   const id = Number(req.params.id);
   const blog = blogContent.find((item) => item.id === id);
   blog.title = req.body.title;
@@ -72,6 +71,40 @@ app.patch("/blogs/:id", (req, res) => {
     JSON.stringify(blogContent, null, 2),
   );
   res.redirect("/blogs");
+});
+
+app.delete("/blogs/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const blog = blogContent.find((item) => item.id === id);
+  blogContent = blogContent.filter((blog) => {
+    return blog.id !== id;
+  });
+  fs.writeFileSync("./data/blogs.json", JSON.stringify(blogContent, null, 2));
+  res.redirect("/blogs");
+});
+
+app.get("/blogs/:id/update", (req, res) => {
+  const id = Number(req.params.id);
+  const blog = blogContent.find((item) => item.id === id);
+  res.render("update.ejs", { blog });
+});
+app.put("/blogs/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const index = blogContent.find((item) => item.id === id);
+
+  if (index === -1) {
+    return res.redirect("/blogs/:id");
+  }
+
+  const updatedBlog = {
+    id: id,
+    title: req.body.title,
+    author: req.body.author,
+    content: req.body.content,
+  };
+
+  blogContent[index] = updatedBlog;
+  fs.writeFileSync("./data/blogs.json", JSON.stringify(blogContent, null, 2));
 });
 
 app.listen(PORT, () => {

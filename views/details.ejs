@@ -7,18 +7,28 @@
   </head>
   <body>
     <%- include("partials/navbar") %>
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title"><%= blog.author %></h5>
-        <p class="card-text"><%= blog.title %></p>
-        <p class="card-text"><%= blog.content %></p>
-        <a href="#" class="btn btn-primary">Delete</a>
-        <a
-          href="http://localhost:3000/blogs/<%= blog.id %>/update"
-          class="btn btn-primary"
-          >update/edit</a
-        >
+    <form
+      action="http://localhost:3000/blogs/<%= blog.id %>?_method=DELETE"
+      method="POST"
+    >
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title"><%= blog.author %></h5>
+          <p class="card-text"><%= blog.title %></p>
+          <p class="card-text"><%= blog.content %></p>
+          <button type="submit" class="btn btn-danger">Delete</button>
+          <a
+            href="http://localhost:3000/blogs/<%= blog.id %>/edit"
+            class="btn btn-primary"
+            >Edit</a
+          >
+          <a
+            href="http://localhost:3000/blogs/<%= blog.id %>/update"
+            class="btn btn-secondary"
+            >update full blog</a
+          >
+        </div>
       </div>
-    </div>
+    </form>
   </body>
 </html>

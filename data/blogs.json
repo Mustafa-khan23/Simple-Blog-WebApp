@@ -1,27 +1,15 @@
 [
   {
-    "id": 1,
-    "title": "Getting Started with Express.js",
-    "author": "Mustafa",
-    "content": "Express.js is a fast, minimalist web framework for Node.js. It simplifies routing, middleware handling, and server-side development."
-  },
-  {
     "id": 2,
     "title": "Understanding REST APIs",
     "author": "Aisha",
     "content": "REST APIs allow clients and servers to communicate using standard HTTP methods such as GET, POST, PUT, PATCH, and DELETE."
   },
   {
-    "id": 3,
-    "title": "Why Learn EJS?",
-    "author": "Rahul",
-    "content": "EJS lets you embed JavaScript directly into HTML templates, making it easy to render dynamic content on the server."
-  },
-  {
     "id": 4,
     "title": "Bootstrap for Beginners",
     "author": "Sarah",
-    "content": "Bootstrap provides a responsive grid system and pre-built components that help developers build beautiful interfaces quickly."
+    "content": "Bootstrap provides a responsive grid system and pre-built components that help developers build beautiful interfaces quickly and efficiently ."
   },
   {
     "id": 5,
@@ -54,10 +42,6 @@
     "content": "Server-side rendering generates HTML on the server before sending it to the browser, improving SEO and initial page load."
   },
   {
-    "id": 10,
-    "title": "JavaScript Array Methods"
-  },
-  {
     "id": 11,
     "title": "NEET UG experience ",
     "author": "faiza",
@@ -71,6 +55,8 @@
   },
   {
     "id": 13,
-    "title": "my experience in aurangabad"
+    "title": "Learning DevOps",
+    "author": "Faizan ",
+    "content": "DevOps refers to Dev -> development and Ops -> operations which is continous integration and continous deployment. "
   }
 ]
