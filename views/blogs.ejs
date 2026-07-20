@@ -4,20 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blogs | Blogigy</title>
-    <link rel="stylesheet" href="/public/style/style.css">
+    <link rel="stylesheet" href="/public/style/style.css" />
   </head>
   <body>
     <%- include("partials/navbar.ejs") %>
-    <div class="row g-4" id="container">
-    <% for(blogs of blogContent) { %>
-      <div class="card" style="width: 18rem" id="card-body">
-      <div class="card-body" id="card-body">
-        <h5 class="card-title"><%= blogs.author%></h5>
-        <p class="card-text"><%= blogs.title %></p>
-        <a href="http://localhost:3000/blogs/<%= blogs.id %>" class="btn btn-primary">view blog</a>
+
+    <main class="page-shell">
+      <section class="section-heading">
+        <p class="eyebrow">Discover</p>
+        <h1>Stories from the community</h1>
+        <p class="intro-text">
+          Browse the latest posts, open a blog, and explore the ideas behind each story.
+        </p>
+      </section>
+
+      <div class="blog-grid">
+        <% blogContent.forEach((blogs) => { %>
+          <article class="blog-card">
+            <div class="card-glow"></div>
+            <div class="card-content">
+              <p class="card-label">Author</p>
+              <h3 class="card-title"><%= blogs.author %></h3>
+              <p class="card-text"><%= blogs.title %></p>
+              <a href="/blogs/<%= blogs.id %>" class="card-link">Read blog</a>
+            </div>
+          </article>
+        <% }) %>
       </div>
-    </div>
-    <% } %>
-    </div>
+    </main>
   </body>
 </html>

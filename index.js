@@ -14,6 +14,7 @@ app.use(express.json());
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use("/images", express.static(path.join(__dirname, "public", "images")));
+app.use("/public", express.static(path.join(__dirname, "public")));
 
 // routes
 app.get("/", (req, res) => {
@@ -70,7 +71,7 @@ app.patch("/blogs/:id", (req, res) => {
     path.join("./data/blogs.json"),
     JSON.stringify(blogContent, null, 2),
   );
-  res.redirect("/blogs", { blogContent });
+  res.redirect("/blogs");
 });
 
 app.delete("/blogs/:id", (req, res) => {

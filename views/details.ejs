@@ -4,31 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= blog.author %> | blogify</title>
+    <link rel="stylesheet" href="/public/style/style.css" />
   </head>
   <body>
     <%- include("partials/navbar") %>
-    <form
-      action="http://localhost:3000/blogs/<%= blog.id %>?_method=DELETE"
-      method="POST"
-    >
-      <div class="card" style="width: 18rem">
-        <div class="card-body">
-          <h5 class="card-title"><%= blog.author %></h5>
-          <p class="card-text"><%= blog.title %></p>
-          <p class="card-text"><%= blog.content %></p>
-          <button type="submit" class="btn btn-danger">Delete</button>
-          <a
-            href="http://localhost:3000/blogs/<%= blog.id %>/edit"
-            class="btn btn-primary"
-            >Edit</a
-          >
-          <a
-            href="http://localhost:3000/blogs/<%= blog.id %>/update"
-            class="btn btn-secondary"
-            >update full blog</a
-          >
+
+    <main class="detail-shell">
+      <section class="detail-card">
+        <div class="detail-card-header">
+          <p class="eyebrow">Blog detail</p>
+          <h1><%= blog.title %></h1>
+          <p class="detail-author">Written by <%= blog.author %></p>
         </div>
-      </div>
-    </form>
+
+        <div class="detail-card-body">
+          <p class="detail-content"><%= blog.content %></p>
+        </div>
+
+        <div class="detail-actions">
+          <a href="/blogs" class="btn btn-secondary">Back to blogs</a>
+          <a href="/blogs/<%= blog.id %>/edit" class="btn btn-primary">Edit</a>
+          <a href="/blogs/<%= blog.id %>/update" class="btn btn-outline"
+            >Update full blog</a
+          >
+
+          <form
+            action="/blogs/<%= blog.id %>?_method=DELETE"
+            method="POST"
+            class="inline-form"
+          >
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
